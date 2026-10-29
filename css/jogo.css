@@ -1,0 +1,31 @@
+/* =========================================================
+   Natural Synergy — estilos da página: Jogo (jogo.html)
+   Carregado depois de style.css (estilos gerais).
+   ========================================================= */
+
+.jogo-area { background: var(--superficie); border: 1px solid var(--borda); border-radius: 24px; padding: 32px; box-shadow: var(--sombra); max-width: 820px; margin: 0 auto; }
+.jogo-hud { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+.hud-item { background: var(--musgo); padding: 8px 16px; border-radius: 999px; font-weight: 800; color: var(--destaque-texto); }
+.barra { height: 10px; border-radius: 999px; background: var(--musgo); overflow: hidden; margin-bottom: 24px; }
+.barra span { display: block; height: 100%; background: var(--grad-marca); transition: width .4s; }
+.cena { background: var(--grad-tech); color: #d9efe9; border-radius: 18px; padding: 24px; margin-bottom: 20px; display: flex; gap: 18px; align-items: center; }
+.cena .emoji-cena { flex-shrink: 0; width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; background: rgba(60,224,199,.12); color: var(--neon); }
+.cena .emoji-cena svg { width: 36px; height: 36px; }
+.cena p { margin: 0; font-size: 1.08rem; }
+.opcoes { display: grid; gap: 12px; }
+.opcao {
+  text-align: left; padding: 16px 20px; border-radius: 14px; border: 2px solid var(--borda); background: var(--campo-fundo);
+  font: inherit; font-weight: 600; cursor: pointer; transition: border-color .2s, background .2s, transform .15s;
+}
+.opcao:hover:not(:disabled) { border-color: var(--agua); transform: translateX(4px); }
+.opcao.certa { border-color: var(--folha); background: var(--tinta-ok); }
+.opcao.errada { border-color: var(--cuidado); background: var(--tinta-perigo); }
+.opcao:disabled { cursor: default; }
+.explicacao { margin-top: 18px; }
+.tempo-barra { height: 6px; background: var(--tinta-alerta); border-radius: 999px; overflow: hidden; margin-bottom: 18px; }
+.tempo-barra span { display: block; height: 100%; background: var(--sol); width: 100%; }
+.resultado { text-align: center; }
+.medalha { width: 120px; height: 120px; margin: 0 auto 16px; }
+
+/* Modo escuro */
+[data-tema="escuro"] .opcao { color: var(--texto); }

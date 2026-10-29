@@ -1,0 +1,37 @@
+/* =========================================================
+   Natural Synergy — estilos da página: Página inicial (index.html)
+   Carregado depois de style.css (estilos gerais).
+   ========================================================= */
+
+/* ---------------- Hero ---------------- */
+.hero { position: relative; overflow: hidden; background: var(--grad-tech); color: #d9efe9; padding-block: 90px 110px; }
+.hero h1 { color: #fff; }
+.hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--broto), var(--neon)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .lead { color: #b8d8d0; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+.hero-folhas { position: absolute; inset: 0; z-index: 1; opacity: .5; pointer-events: none; }
+.hero-onda { position: absolute; bottom: -1px; left: 0; width: 100%; height: 70px; z-index: 2; }
+
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+
+/* Cartão do relógio/pulseira no hero */
+.dispositivo {
+  background: linear-gradient(160deg, rgba(255,255,255,.1), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.15); border-radius: 28px; padding: 28px; backdrop-filter: blur(6px);
+}
+.dispositivo .linha { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.dispositivo .bpm { font-family: var(--fonte-titulo); font-size: 3.2rem; font-weight: 700; color: #fff; }
+.dispositivo .bpm small { font-size: 1rem; color: var(--broto); margin-left: 6px; }
+.pulso-svg { width: 100%; height: 80px; }
+.pulso-svg path { fill: none; stroke: var(--neon); stroke-width: 2.5; stroke-dasharray: 600; animation: ecg 2.4s linear infinite; }
+@keyframes ecg { from { stroke-dashoffset: 600; } to { stroke-dashoffset: 0; } }
+
+/* ---------------- Fluxo / passos ---------------- */
+.fluxo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 18px; counter-reset: passo; }
+.fluxo .passo { position: relative; padding: 24px 20px 20px; border-radius: var(--raio); background: var(--superficie); border: 1px solid var(--borda); }
+.fluxo .passo::before {
+  counter-increment: passo; content: counter(passo);
+  position: absolute; top: -16px; left: 20px; width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--grad-marca); color: #fff; font-weight: 700; font-family: var(--fonte-titulo);
+}
+.secao-tech .fluxo .passo { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.12); }

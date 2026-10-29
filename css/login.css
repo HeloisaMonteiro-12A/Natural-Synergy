@@ -1,0 +1,18 @@
+/* =========================================================
+   Natural Synergy — estilos da página: Login (login.html)
+   Carregado depois de style.css (estilos gerais).
+   ========================================================= */
+
+/* Login */
+.login-pagina { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+.login-arte { background: var(--grad-tech); color: #cfe7e0; padding: 48px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+.login-arte h2 { color: #fff; font-size: 2.2rem; }
+.login-form-lado { display: grid; place-items: center; padding: 40px 20px; }
+.login-caixa { width: min(420px, 100%); }
+.login-caixa .abas { margin-bottom: 26px; }
+.demo-cred { font-size: .88rem; color: var(--texto-suave); background: var(--musgo); padding: 12px 16px; border-radius: 12px; margin-top: 18px; }
+@media (max-width: 860px) { .login-pagina { grid-template-columns: 1fr; } .login-arte { padding: 32px 20px; } .login-arte .esconde-mobile { display: none; } }
+
+/* Botão de tema no canto do formulário */
+.login-form-lado { position: relative; }
+.login-form-lado .tema-toggle { position: absolute; top: 20px; right: 20px; margin: 0; }

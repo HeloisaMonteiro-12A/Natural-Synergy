@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitrine Técnica · Natural Synergy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/vitrine.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <div id="cabecalho"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="sobretitulo" style="color:var(--neon)">Vitrine técnica</span>
+        <h1>Por dentro do protótipo</h1>
+        <p class="lead">Componentes, arquitetura, ligações elétricas e a lógica de detecção que fazem o Natural Synergy funcionar.</p>
+      </div>
+    </section>
+
+    <!-- COMPONENTES -->
+    <section class="secao">
+      <div class="container">
+        <div class="revelar">
+          <span class="sobretitulo">Hardware</span>
+          <h2>Componentes utilizados</h2>
+        </div>
+        <div class="grade grade-3" style="margin-top:32px">
+          <div class="cartao revelar">
+            <div class="icone tech"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+            <h3>ESP32</h3>
+            <p>Microcontrolador dual-core com Wi-Fi e Bluetooth integrados. É o “cérebro” do sistema: lê os sensores, processa os dados e envia os alertas pela internet.</p>
+          </div>
+          <div class="cartao revelar">
+            <div class="icone alerta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg></div>
+            <h3>Sensor de batimentos</h3>
+            <p>Sensor óptico (ex.: MAX30102 ou Pulse Sensor) que mede a frequência cardíaca. Uma elevação brusca de BPM (taquicardia) é comum durante crises.</p>
+          </div>
+          <div class="cartao revelar">
+            <div class="icone agua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20"/><path d="M5 5l14 14M19 5L5 19" opacity=".4"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3>Sensor de movimento</h3>
+            <p>Acelerômetro e giroscópio (ex.: MPU6050) que identifica movimentos rítmicos e intensos, característicos de crises tônico-clônicas.</p>
+          </div>
+          <div class="cartao revelar">
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></div>
+            <h3>Buzzer</h3>
+            <p>Emite um sinal sonoro para alertar pessoas próximas assim que uma possível crise é detectada.</p>
+          </div>
+          <div class="cartao revelar">
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg></div>
+            <h3>Botão</h3>
+            <p>Permite cancelar falsos alarmes (toque rápido) ou enviar um pedido de ajuda manual (pressionar por 3 segundos).</p>
+          </div>
+          <div class="cartao revelar">
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></div>
+            <h3>LED</h3>
+            <p>Indicador visual do estado: verde para monitoramento normal e vermelho para alerta.</p>
+          </div>
+          <div class="cartao revelar">
+            <div class="icone tech"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h.01M11 9h.01M15 9h.01M7 12h.01M11 12h.01M15 12h.01M7 15h.01M11 15h.01M15 15h.01"/></svg></div>
+            <h3>Protoboard</h3>
+            <p>Placa de ensaio fixada sobre o manguito, onde o ESP32 e os demais componentes são encaixados e ligados sem solda.</p>
+          </div>
+          <div class="cartao revelar">
+            <div class="icone agua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8c4-2 14-2 18 0v8c-4 2-14 2-18 0z"/><path d="M3 12c4 2 14 2 18 0" opacity=".5"/></svg></div>
+            <h3>Manguito</h3>
+            <p>Peça de tecido que cobre todo o antebraço e serve de base para a protoboard, mantendo os sensores firmes junto à pele.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATO + MODELO 3D -->
+    <section class="secao secao-alt" id="modelo-3d">
+      <div class="container">
+        <div class="grade grade-2" style="align-items:end">
+          <div class="revelar">
+            <span class="sobretitulo">Formato · Modelo 3D</span>
+            <h2>Um manguito que veste o antebraço</h2>
+            <p class="lead">O protótipo é um manguito preto que cobre todo o antebraço, do punho até perto do cotovelo. Em cima dele fica a protoboard com o ESP32, o buzzer, o LED e o botão.</p>
+          </div>
+          <div class="revelar">
+            <p>Os sensores ficam presos ao manguito e ligados à protoboard por jumpers: o de movimento perto do cotovelo e o de batimentos na parte de baixo do punho, em contato com a pele.</p>
+            <p style="color:var(--texto-suave);font-size:.95rem">Arraste para girar, use a roda do mouse (ou dois dedos) para aproximar e clique em uma peça para ver o que ela faz.</p>
+          </div>
+        </div>
+
+        <div class="visor3d">
+          <div class="visor3d-palco" id="visor3d-palco">
+            <div class="visor3d-hud">
+              <span class="chip chip-ok" id="visor3d-status"><span class="ponto"></span> Monitorando</span>
+              <span class="visor3d-leitura"><strong id="visor3d-bpm">76</strong> BPM</span>
+            </div>
+            <div class="visor3d-dica" aria-hidden="true">Arraste para girar · role para aproximar</div>
+          </div>
+          <aside class="visor3d-lateral">
+            <div class="visor3d-botoes">
+              <button type="button" class="btn btn-claro" id="visor3d-crise" aria-pressed="false">Simular crise</button>
+              <button type="button" class="btn btn-claro" id="visor3d-explodir" aria-pressed="false">Separar peças</button>
+              <button type="button" class="btn btn-claro" id="visor3d-nomes" aria-pressed="false">Mostrar nomes</button>
+              <button type="button" class="btn btn-claro" id="visor3d-girar" aria-pressed="true">Girar sozinho</button>
+            </div>
+            <div>
+              <h3>Peças</h3>
+              <ul class="visor3d-lista" id="visor3d-lista"></ul>
+            </div>
+            <div class="visor3d-detalhe" id="visor3d-detalhe" aria-live="polite">
+              <h4>Escolha uma peça</h4>
+              <p>Clique em um componente no modelo ou na lista acima para ver a função dele no protótipo.</p>
+            </div>
+            <button type="button" class="btn btn-claro" id="visor3d-resetar" style="width:100%">Voltar à vista inicial</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARQUITETURA -->
+    <section class="secao secao-tech">
+      <div class="container">
+        <div class="revelar">
+          <span class="sobretitulo">Arquitetura</span>
+          <h2>Como os dados circulam</h2>
+          <p class="lead" style="color:#b8d8d0">Os sensores enviam leituras ao ESP32, que decide localmente se há risco. Os dados e alertas seguem pela internet até o painel web e os contatos.</p>
+        </div>
+        <div class="diagrama-wrap revelar" style="margin-top:32px">
+          <svg class="diagrama" viewBox="0 0 1000 360" role="img" aria-label="Diagrama: sensores ligados ao ESP32, que aciona LED e buzzer e envia dados pela internet ao servidor, painel web e contatos">
+            <defs>
+              <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3ce0c7"/></marker>
+            </defs>
+            <g font-family="Outfit, sans-serif" font-size="15" fill="#fff" text-anchor="middle">
+              <!-- entradas -->
+              <rect x="20" y="30" width="190" height="60" rx="14" fill="#1f5f4a"/><text x="115" y="66">Sensor de batimentos</text>
+              <rect x="20" y="120" width="190" height="60" rx="14" fill="#1f5f4a"/><text x="115" y="156">Sensor de movimento</text>
+              <rect x="20" y="210" width="190" height="60" rx="14" fill="#1f5f4a"/><text x="115" y="246">Botão</text>
+              <!-- esp32 -->
+              <rect x="300" y="100" width="190" height="100" rx="18" fill="#0a1b26" stroke="#3ce0c7" stroke-width="2"/>
+              <text x="395" y="145" font-size="20" font-weight="700">ESP32</text>
+              <text x="395" y="170" font-size="13" fill="#9fc7bd">detecção + Wi-Fi</text>
+              <!-- saídas locais -->
+              <rect x="300" y="260" width="85" height="50" rx="12" fill="#e86a5c"/><text x="342" y="290">LED</text>
+              <rect x="405" y="260" width="85" height="50" rx="12" fill="#e86a5c"/><text x="447" y="290">Buzzer</text>
+              <!-- nuvem -->
+              <rect x="580" y="110" width="170" height="80" rx="40" fill="#1a9aa0"/>
+              <text x="665" y="145">Servidor / API</text><text x="665" y="166" font-size="12" fill="#dff4f3">internet</text>
+              <!-- destinos -->
+              <rect x="820" y="30" width="160" height="60" rx="14" fill="#3fa66b"/><text x="900" y="66">Painel web</text>
+              <rect x="820" y="120" width="160" height="60" rx="14" fill="#3fa66b"/><text x="900" y="156">Contato cadastrado</text>
+              <rect x="820" y="210" width="160" height="60" rx="14" fill="#3fa66b"/><text x="900" y="246">Usuário cadastrado</text>
+            </g>
+            <g stroke="#3ce0c7" stroke-width="2" fill="none" marker-end="url(#seta)">
+              <path d="M210 60 C255 60 255 125 298 125"/>
+              <path d="M210 150 H298"/>
+              <path d="M210 240 C255 240 255 175 298 175"/>
+              <path d="M360 200 V258"/><path d="M430 200 V258"/>
+              <path d="M490 150 H578"/>
+              <path d="M750 140 C785 140 785 60 818 60"/>
+              <path d="M750 150 H818"/>
+              <path d="M750 160 C785 160 785 240 818 240"/>
+            </g>
+            <text x="534" y="140" font-family="Nunito Sans, sans-serif" font-size="12" fill="#9fc7bd" text-anchor="middle">HTTP/MQTT</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- LÓGICA -->
+    <section class="secao">
+      <div class="container">
+        <div class="grade grade-2">
+          <div class="revelar">
+            <span class="sobretitulo">Algoritmo</span>
+            <h2>Lógica de detecção</h2>
+            <p>O protótipo usa regras de limite combinadas, o que reduz falsos alarmes: um único sinal alterado sozinho não dispara o alerta.</p>
+            <ul class="lista-check">
+              <li><span><strong>Batimentos:</strong> BPM acima do limite configurado (ex.: 120) ou aumento súbito de mais de 30% em relação à média de repouso.</span></li>
+              <li><span><strong>Movimento:</strong> aceleração com alta variação e padrão repetitivo durante vários segundos seguidos.</span></li>
+              <li><span><strong>Confirmação:</strong> as duas condições precisam ocorrer juntas por pelo menos 10 segundos.</span></li>
+              <li><span><strong>Cancelamento:</strong> após detectar, o sistema aguarda 10 s para o usuário cancelar pelo botão.</span></li>
+            </ul>
+          </div>
+          <div class="revelar">
+            <span class="sobretitulo">Ligações</span>
+            <h2>Pinagem no ESP32</h2>
+            <div class="tabela-wrap">
+              <table>
+                <thead><tr><th>Componente</th><th>Pino ESP32</th><th>Observação</th></tr></thead>
+                <tbody>
+                  <tr><td>Sensor de batimentos (I²C)</td><td><code>GPIO 21</code> / <code>GPIO 22</code></td><td>SDA / SCL</td></tr>
+                  <tr><td>MPU6050 (I²C)</td><td><code>GPIO 21</code> / <code>GPIO 22</code></td><td>Mesmo barramento</td></tr>
+                  <tr><td>Buzzer</td><td><code>GPIO 25</code></td><td>Saída digital</td></tr>
+                  <tr><td>LED</td><td><code>GPIO 26</code></td><td>Com resistor de 220 Ω</td></tr>
+                  <tr><td>Botão</td><td><code>GPIO 27</code></td><td>INPUT_PULLUP</td></tr>
+                  <tr><td>Alimentação</td><td><code>3V3</code> / <code>GND</code></td><td>Sensores em 3,3 V</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size:.9rem;color:var(--texto-suave);margin-top:10px">Se usar um sensor de pulso analógico, ligue o sinal em <code>GPIO 34</code> (entrada ADC).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓDIGO -->
+    <section class="secao secao-alt">
+      <div class="container">
+        <div class="revelar">
+          <span class="sobretitulo">Firmware</span>
+          <h2>Trecho do código (Arduino / C++)</h2>
+          <p class="lead">Laço principal simplificado mostrando leitura, detecção, aviso local e envio do alerta.</p>
+        </div>
+        <pre class="codigo revelar"><span class="k">#define</span> PINO_BUZZER <span class="n">25</span>
+<span class="k">#define</span> PINO_LED    <span class="n">26</span>
+<span class="k">#define</span> PINO_BOTAO  <span class="n">27</span>
+
+<span class="k">const int</span>   LIMITE_BPM       = <span class="n">120</span>;
+<span class="k">const float</span> LIMITE_MOVIMENTO = <span class="n">2.5</span>;    <span class="c">// variação em g</span>
+<span class="k">const int</span>   TEMPO_CONFIRMA   = <span class="n">10000</span>;  <span class="c">// ms</span>
+<span class="k">const int</span>   TEMPO_CANCELAR   = <span class="n">10000</span>;  <span class="c">// ms</span>
+
+<span class="k">unsigned long</span> inicioSuspeita = <span class="n">0</span>;
+
+<span class="k">void</span> loop() {
+  <span class="k">int</span>   bpm       = lerBatimentos();
+  <span class="k">float</span> movimento = lerVariacaoAceleracao();
+  enviarLeituraParaPainel(bpm, movimento);
+
+  <span class="c">// Pedido de ajuda manual: botão pressionado por 3 s</span>
+  <span class="k">if</span> (botaoPressionadoPor(<span class="n">3000</span>)) {
+    enviarAlerta(<span class="s">"Pedido de ajuda manual (SOS)"</span>);
+  }
+
+  <span class="k">bool</span> suspeita = bpm &gt; LIMITE_BPM &amp;&amp; movimento &gt; LIMITE_MOVIMENTO;
+
+  <span class="k">if</span> (!suspeita) { inicioSuspeita = <span class="n">0</span>; <span class="k">return</span>; }
+  <span class="k">if</span> (inicioSuspeita == <span class="n">0</span>) inicioSuspeita = millis();
+
+  <span class="k">if</span> (millis() - inicioSuspeita &gt;= TEMPO_CONFIRMA) {
+    acionarAvisoLocal();                 <span class="c">// LED vermelho + buzzer</span>
+    <span class="k">if</span> (!usuarioCancelou(TEMPO_CANCELAR)) {
+      enviarAlerta(<span class="s">"Possível crise detectada"</span>);  <span class="c">// contato + usuário</span>
+    }
+    desligarAvisoLocal();
+    inicioSuspeita = <span class="n">0</span>;
+  }
+}</pre>
+      </div>
+    </section>
+
+    <!-- ESPECIFICAÇÕES -->
+    <section class="secao">
+      <div class="container">
+        <div class="centro revelar">
+          <span class="sobretitulo">Ficha técnica</span>
+          <h2>Especificações do protótipo</h2>
+        </div>
+        <div class="grade grade-4" style="margin-top:32px">
+          <div class="cartao stat revelar"><div class="num">240 MHz</div><p>processador dual-core do ESP32</p></div>
+          <div class="cartao stat revelar"><div class="num">2,4 GHz</div><p>Wi-Fi 802.11 b/g/n</p></div>
+          <div class="cartao stat revelar"><div class="num">3,3 V</div><p>tensão de operação</p></div>
+          <div class="cartao stat revelar"><div class="num">10 s</div><p>janela para cancelar falso alarme</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="rodape"></div>
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="js/modelo3d.js"></script>
+</body>
+</html>

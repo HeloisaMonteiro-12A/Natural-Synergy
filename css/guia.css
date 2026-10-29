@@ -1,0 +1,17 @@
+/* =========================================================
+   Natural Synergy — estilos da página: Guia de uso (guia.html)
+   Carregado depois de style.css (estilos gerais).
+   ========================================================= */
+
+.passos-guia { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; counter-reset: g; }
+.passos-guia li {
+  display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start;
+  background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 24px;
+}
+.passos-guia li::before {
+  counter-increment: g; content: counter(g, decimal-leading-zero);
+  font-family: var(--fonte-titulo); font-size: 2rem; font-weight: 700; color: var(--folha); line-height: 1;
+}
+.passos-guia h3 { margin-bottom: .3em; }
+.passos-guia p { margin: 0; color: var(--texto-suave); }
+@media (max-width: 560px) { .passos-guia li { grid-template-columns: 1fr; gap: 6px; } }

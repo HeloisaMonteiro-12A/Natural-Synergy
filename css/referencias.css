@@ -1,0 +1,12 @@
+/* =========================================================
+   Natural Synergy — estilos da página: Referências (referencias.html)
+   Carregado depois de style.css (estilos gerais).
+   ========================================================= */
+
+/* ---------------- Referências ---------------- */
+.ref-lista { display: grid; gap: 14px; }
+.ref { background: var(--superficie); border: 1px solid var(--borda); border-left: 5px solid var(--folha); border-radius: 12px; padding: 18px 22px; }
+.ref .tag { display: inline-block; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; padding: 3px 10px; border-radius: 999px; background: var(--musgo); color: var(--destaque-texto); margin-bottom: 8px; }
+.ref.tec { border-left-color: var(--agua); } .ref.tec .tag { background: var(--tinta-agua); color: var(--agua); }
+.ref.saude { border-left-color: var(--cuidado); } .ref.saude .tag { background: var(--tinta-alerta); color: var(--alerta-texto); }
+.ref p { margin: 0; }

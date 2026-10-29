@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo Mão Amiga · Natural Synergy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jogo.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <div id="cabecalho"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="sobretitulo" style="color:var(--neon)">Jogo educativo</span>
+        <h1>Mão Amiga</h1>
+        <p class="lead">Você recebeu um alerta do Natural Synergy. Cada segundo conta! Escolha a atitude certa em cada situação e descubra se está pronto para ajudar.</p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <div class="jogo-area" id="jogo">
+          <!-- Tela inicial -->
+          <div id="tela-inicio" class="centro">
+            <svg class="medalha" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="56" fill="#e8f3ea"/>
+              <path d="M60 28C42 38 34 52 37 68c2 11 12 18 23 18s21-7 23-18c3-16-5-30-23-40z" fill="#3fa66b"/>
+              <path d="M40 62h10l5-10 6 20 5-13 3 5h11" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h2>Pronto para ajudar?</h2>
+            <p style="color:var(--texto-suave);max-width:520px;margin:0 auto 24px">São <strong>8 situações</strong>. Você tem <strong>15 segundos</strong> para cada uma. Respostas rápidas e corretas valem mais pontos.</p>
+            <button class="btn btn-primario" id="btn-comecar">Começar</button>
+            <p id="recorde" style="margin-top:16px;color:var(--texto-suave);font-size:.92rem"></p>
+          </div>
+
+          <!-- Tela de pergunta -->
+          <div id="tela-pergunta" hidden>
+            <div class="jogo-hud">
+              <span class="hud-item" id="hud-rodada">Situação 1/8</span>
+              <span class="hud-item" id="hud-pontos">0 pontos</span>
+              <span class="hud-item" id="hud-tempo">15 s</span>
+            </div>
+            <div class="barra"><span id="barra-progresso" style="width:0%"></span></div>
+            <div class="tempo-barra"><span id="barra-tempo"></span></div>
+            <div class="cena">
+              <div class="emoji-cena" id="cena-icone"></div>
+              <p id="cena-texto"></p>
+            </div>
+            <div class="opcoes" id="opcoes"></div>
+            <div class="explicacao" id="explicacao" hidden></div>
+            <div style="text-align:right;margin-top:18px">
+              <button class="btn btn-primario" id="btn-proxima" hidden>Próxima</button>
+            </div>
+          </div>
+
+          <!-- Tela final -->
+          <div id="tela-final" class="resultado" hidden>
+            <svg class="medalha" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="56" fill="#fff3d6"/>
+              <circle cx="60" cy="60" r="38" fill="#f4b942"/>
+              <path d="M60 38l6.5 13.2 14.5 2.1-10.5 10.2 2.5 14.5L60 71.2 47 78l2.5-14.5L39 53.3l14.5-2.1z" fill="#fff"/>
+            </svg>
+            <h2 id="final-titulo"></h2>
+            <p class="lead" style="margin:0 auto 8px" id="final-texto"></p>
+            <p style="font-weight:800;font-size:1.3rem;color:var(--destaque-texto)" id="final-pontos"></p>
+            <div class="grupo-btn" style="justify-content:center;margin-top:20px">
+              <button class="btn btn-primario" id="btn-reiniciar">Jogar de novo</button>
+              <a class="btn btn-secundario" href="guia.html">Rever primeiros socorros</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="rodape"></div>
+  <script src="js/main.js"></script>
+  <script src="js/jogo.js"></script>
+</body>
+</html>

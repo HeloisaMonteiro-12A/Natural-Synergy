@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referências Bibliográficas · Natural Synergy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/referencias.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <div id="cabecalho"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="sobretitulo" style="color:var(--neon)">Referências bibliográficas</span>
+        <h1>Base científica e técnica</h1>
+        <p class="lead">Obras, artigos e documentos técnicos que fundamentaram o projeto, organizados segundo a ABNT NBR 6023.</p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container" style="max-width:920px">
+        <div class="abas" id="filtros">
+          <button class="aba ativa" data-filtro="todas">Todas</button>
+          <button class="aba" data-filtro="saude">Saúde</button>
+          <button class="aba" data-filtro="tec">Tecnologia</button>
+        </div>
+
+        <div class="ref-lista">
+          <article class="ref saude" data-tipo="saude">
+            <span class="tag">Saúde</span>
+            <p>BENICZKY, S. <em>et al.</em> Automated seizure detection using wearable devices: a clinical practice guideline of the International League Against Epilepsy and the International Federation of Clinical Neurophysiology. <strong>Epilepsia</strong>, v. 62, n. 3, p. 632-646, 2021.</p>
+          </article>
+          <article class="ref saude" data-tipo="saude">
+            <span class="tag">Saúde</span>
+            <p>BRASIL. Ministério da Saúde. <strong>Protocolo Clínico e Diretrizes Terapêuticas da Epilepsia</strong>. Portaria Conjunta nº 17, de 21 de junho de 2018. Brasília: Ministério da Saúde, 2018.</p>
+          </article>
+          <article class="ref saude" data-tipo="saude">
+            <span class="tag">Saúde</span>
+            <p>FISHER, R. S. <em>et al.</em> ILAE official report: a practical clinical definition of epilepsy. <strong>Epilepsia</strong>, v. 55, n. 4, p. 475-482, 2014.</p>
+          </article>
+          <article class="ref saude" data-tipo="saude">
+            <span class="tag">Saúde</span>
+            <p>FISHER, R. S. <em>et al.</em> Operational classification of seizure types by the International League Against Epilepsy: position paper of the ILAE Commission for Classification and Terminology. <strong>Epilepsia</strong>, v. 58, n. 4, p. 522-530, 2017.</p>
+          </article>
+          <article class="ref saude" data-tipo="saude">
+            <span class="tag">Saúde</span>
+            <p>WORLD HEALTH ORGANIZATION. <strong>Epilepsy: a public health imperative</strong>. Geneva: World Health Organization, 2019.</p>
+          </article>
+          <article class="ref saude" data-tipo="saude">
+            <span class="tag">Saúde</span>
+            <p>LIGA BRASILEIRA DE EPILEPSIA. <strong>O que fazer durante uma crise</strong>. Disponível em: https://epilepsia.org.br. Acesso em: [inserir data].</p>
+          </article>
+          <article class="ref tec" data-tipo="tec">
+            <span class="tag">Tecnologia</span>
+            <p>ESPRESSIF SYSTEMS. <strong>ESP32 Series Datasheet</strong>. Shanghai: Espressif Systems. Disponível em: https://www.espressif.com. Acesso em: [inserir data].</p>
+          </article>
+          <article class="ref tec" data-tipo="tec">
+            <span class="tag">Tecnologia</span>
+            <p>INVENSENSE. <strong>MPU-6000 and MPU-6050 Product Specification</strong>. Revision 3.4. Sunnyvale: InvenSense, 2013.</p>
+          </article>
+          <article class="ref tec" data-tipo="tec">
+            <span class="tag">Tecnologia</span>
+            <p>MAXIM INTEGRATED. <strong>MAX30102: high-sensitivity pulse oximeter and heart-rate sensor for wearable health</strong>. Datasheet. San Jose: Maxim Integrated.</p>
+          </article>
+          <article class="ref tec" data-tipo="tec">
+            <span class="tag">Tecnologia</span>
+            <p>ARDUINO. <strong>Arduino Language Reference</strong>. Disponível em: https://www.arduino.cc/reference. Acesso em: [inserir data].</p>
+          </article>
+        </div>
+
+        <div class="aviso" style="margin-top:28px">
+          <strong>Nota para a equipe</strong>
+          Confira cada referência com a versão que vocês realmente consultaram, ajuste os modelos dos sensores usados no protótipo e preencha as datas de acesso antes da entrega.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="rodape"></div>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("filtros").addEventListener("click", e => {
+      const filtro = e.target.dataset.filtro;
+      if (!filtro) return;
+      document.querySelectorAll("#filtros .aba").forEach(a => a.classList.toggle("ativa", a === e.target));
+      document.querySelectorAll(".ref").forEach(r => r.hidden = filtro !== "todas" && r.dataset.tipo !== filtro);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de Uso · Natural Synergy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/guia.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <div id="cabecalho"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="sobretitulo" style="color:var(--neon)">Guia de uso</span>
+        <h1>Como usar o Natural Synergy</h1>
+        <p class="lead">Um passo a passo simples para preparar o dispositivo, cadastrar contatos e entender cada sinal do protótipo.</p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container" style="max-width:900px">
+        <ol class="passos-guia">
+          <li class="revelar"><div><h3>Crie sua conta</h3><p>Acesse a página <a href="login.html">Entrar</a> e faça seu cadastro. Com o login você acessa o painel do software e acompanha o dispositivo.</p></div></li>
+          <li class="revelar"><div><h3>Cadastre os contatos de emergência</h3><p>No painel do <a href="software.html">Software</a>, adicione um contato de confiança (familiar, cuidador) com nome e telefone. Ele receberá o alerta de ajuda junto com o usuário cadastrado.</p></div></li>
+          <li class="revelar"><div><h3>Ligue e conecte o dispositivo</h3><p>Alimente o protótipo pela bateria ou USB. O ESP32 se conecta automaticamente à rede Wi-Fi configurada. O LED pisca em verde quando a conexão é estabelecida.</p></div></li>
+          <li class="revelar"><div><h3>Vista o manguito corretamente</h3><p>Vista o manguito cobrindo todo o antebraço, com a protoboard virada para cima. Ajuste para que fique firme, sem apertar: o sensor de batimentos precisa ficar em contato com a pele, perto do punho, e o sensor de movimento preso ao manguito, para captar tremores e movimentos bruscos.</p></div></li>
+          <li class="revelar"><div><h3>Monitoramento automático</h3><p>A partir daqui, o dispositivo trabalha sozinho: lê batimentos e movimento continuamente e envia os dados para o painel.</p></div></li>
+          <li class="revelar"><div><h3>Se uma crise for detectada</h3><p>O buzzer toca e o LED fica vermelho. Começa uma contagem de 10 segundos. Se for um falso alarme, basta apertar o botão para cancelar. Se ninguém cancelar, o alerta é enviado automaticamente.</p></div></li>
+          <li class="revelar"><div><h3>Pedido de ajuda manual</h3><p>Sentiu sinais de que uma crise pode começar (aura)? Segure o botão por 3 segundos para enviar um pedido de ajuda imediato.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao secao-alt">
+      <div class="container">
+        <div class="centro revelar">
+          <span class="sobretitulo">Sinais do protótipo</span>
+          <h2>O que cada sinal significa</h2>
+        </div>
+        <div class="tabela-wrap revelar" style="margin-top:32px">
+          <table>
+            <thead><tr><th>Componente</th><th>Sinal</th><th>Significado</th></tr></thead>
+            <tbody>
+              <tr><td>LED</td><td>Verde piscando</td><td>Dispositivo ligado e monitorando</td></tr>
+              <tr><td>LED</td><td>Vermelho piscando</td><td>Possível crise detectada, contagem em andamento</td></tr>
+              <tr><td>LED</td><td>Vermelho fixo</td><td>Alerta enviado aos contatos</td></tr>
+              <tr><td>Buzzer</td><td>Bipes intermitentes</td><td>Chama a atenção de quem está por perto</td></tr>
+              <tr><td>Botão</td><td>Toque rápido</td><td>Cancela um falso alarme</td></tr>
+              <tr><td>Botão</td><td>Pressionado por 3 s</td><td>Envia pedido de ajuda manual (SOS)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <div class="centro revelar">
+          <span class="sobretitulo">Primeiros socorros</span>
+          <h2>Recebeu um alerta? Veja o que fazer</h2>
+        </div>
+        <div class="grade grade-2" style="margin-top:36px">
+          <div class="cartao revelar">
+            <h3 style="color:var(--folha)">Faça</h3>
+            <ul class="lista-check">
+              <li>Mantenha a calma e fique ao lado da pessoa.</li>
+              <li>Afaste objetos que possam machucá-la.</li>
+              <li>Proteja a cabeça com algo macio.</li>
+              <li>Vire a pessoa de lado para facilitar a respiração e a saída de saliva.</li>
+              <li>Afrouxe roupas apertadas no pescoço.</li>
+              <li>Marque o tempo de duração da crise.</li>
+              <li>Fique com ela até que esteja totalmente consciente.</li>
+            </ul>
+          </div>
+          <div class="cartao revelar">
+            <h3 style="color:var(--cuidado)">Não faça</h3>
+            <ul class="lista-check lista-x">
+              <li>Não coloque nada na boca da pessoa (nem os dedos).</li>
+              <li>Não tente puxar a língua: ela não “enrola”.</li>
+              <li>Não segure ou tente impedir os movimentos.</li>
+              <li>Não ofereça água ou comida até a recuperação total.</li>
+              <li>Não jogue água no rosto.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aviso perigo revelar" style="margin-top:28px">
+          <strong>Ligue para o SAMU (192) se:</strong>
+          a crise durar mais de 5 minutos, ocorrer uma crise atrás da outra, a pessoa se machucar, tiver dificuldade para respirar, estiver na água, for gestante, ou for a primeira crise.
+        </div>
+        <div class="aviso info revelar" style="margin-top:16px">
+          <strong>Importante</strong>
+          O Natural Synergy é um protótipo acadêmico de apoio. Ele não faz diagnóstico e não substitui o acompanhamento com neurologista.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="rodape"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

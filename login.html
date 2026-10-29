@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar · Natural Synergy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <main class="login-pagina">
+    <section class="login-arte">
+      <a href="index.html" class="logo" style="color:#fff" id="logo-login"></a>
+      <div>
+        <span class="sobretitulo">Área do usuário</span>
+        <h2>Acompanhe o monitoramento em tempo real.</h2>
+        <p class="esconde-mobile" style="color:#b8d8d0;max-width:440px">Ao entrar, você acessa o painel do software: batimentos, movimento, estado dos componentes do protótipo, histórico de alertas e cadastro de contatos de emergência.</p>
+      </div>
+      <svg class="esconde-mobile" viewBox="0 0 400 120" style="width:100%;max-width:440px" aria-hidden="true">
+        <path d="M0 70 H90 L105 70 L118 25 L135 105 L148 70 H230 L245 70 L258 30 L275 100 L288 70 H400" fill="none" stroke="#3ce0c7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </section>
+
+    <section class="login-form-lado">
+      <div class="login-caixa">
+        <div class="abas" role="tablist">
+          <button class="aba ativa" data-aba="entrar" role="tab">Entrar</button>
+          <button class="aba" data-aba="cadastrar" role="tab">Criar conta</button>
+        </div>
+
+        <form id="form-entrar" novalidate>
+          <h1 style="font-size:2rem">Bem-vindo de volta</h1>
+          <p style="color:var(--texto-suave)">Entre para acessar o funcionamento do software.</p>
+          <div class="campo"><label for="email">E-mail</label><input type="email" id="email" required autocomplete="email" placeholder="voce@exemplo.com"></div>
+          <div class="campo"><label for="senha">Senha</label><input type="password" id="senha" required autocomplete="current-password" placeholder="••••••"></div>
+          <button class="btn btn-primario btn-bloco" type="submit">Entrar</button>
+          <p class="msg-form" id="msg-entrar"></p>
+          <div class="demo-cred"><strong>Acesso de demonstração:</strong><br>demo@naturalsynergy.com · senha 123456</div>
+        </form>
+
+        <form id="form-cadastrar" novalidate hidden>
+          <h1 style="font-size:2rem">Criar conta</h1>
+          <p style="color:var(--texto-suave)">Cadastre-se para acompanhar o dispositivo.</p>
+          <div class="campo"><label for="c-nome">Nome completo</label><input id="c-nome" required autocomplete="name"></div>
+          <div class="campo"><label for="c-email">E-mail</label><input type="email" id="c-email" required autocomplete="email"></div>
+          <div class="campo"><label for="c-senha">Senha (mín. 6 caracteres)</label><input type="password" id="c-senha" required minlength="6" autocomplete="new-password"></div>
+          <button class="btn btn-primario btn-bloco" type="submit">Cadastrar</button>
+          <p class="msg-form" id="msg-cadastrar"></p>
+        </form>
+
+        <p style="text-align:center;margin-top:24px"><a href="index.html">← Voltar para a home</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("logo-login").innerHTML =
+      `${LOGO_SVG}<span>${NOME_PROJETO.a}<b>${NOME_PROJETO.b}</b></span>`;
+
+    const destino = new URLSearchParams(location.search).get("voltar") || "software.html";
+    if (Auth.sessao()) location.replace(destino);
+
+    // Abas
+    const forms = { entrar: document.getElementById("form-entrar"), cadastrar: document.getElementById("form-cadastrar") };
+    document.querySelectorAll(".aba").forEach(aba => aba.addEventListener("click", () => {
+      document.querySelectorAll(".aba").forEach(a => a.classList.toggle("ativa", a === aba));
+      Object.entries(forms).forEach(([k, f]) => f.hidden = k !== aba.dataset.aba);
+    }));
+
+    // Entrar
+    forms.entrar.addEventListener("submit", e => {
+      e.preventDefault();
+      const msg = document.getElementById("msg-entrar");
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const senha = document.getElementById("senha").value;
+      if (!email || !senha) { msg.className = "msg-form erro"; msg.textContent = "Preencha e-mail e senha."; return; }
+      if (Auth.entrar(email, senha)) {
+        msg.className = "msg-form ok"; msg.textContent = "Tudo certo! Redirecionando…";
+        setTimeout(() => location.href = destino, 600);
+      } else {
+        msg.className = "msg-form erro"; msg.textContent = "E-mail ou senha incorretos.";
+      }
+    });
+
+    // Cadastrar
+    forms.cadastrar.addEventListener("submit", e => {
+      e.preventDefault();
+      const msg = document.getElementById("msg-cadastrar");
+      const nome = document.getElementById("c-nome").value.trim();
+      const email = document.getElementById("c-email").value.trim().toLowerCase();
+      const senha = document.getElementById("c-senha").value;
+      msg.className = "msg-form erro";
+      if (!nome || !email) return msg.textContent = "Preencha todos os campos.";
+      if (!/^\S+@\S+\.\S+$/.test(email)) return msg.textContent = "Informe um e-mail válido.";
+      if (senha.length < 6) return msg.textContent = "A senha precisa ter pelo menos 6 caracteres.";
+      const erro = Auth.cadastrar(nome, email, senha);
+      if (erro) return msg.textContent = erro;
+      Auth.entrar(email, senha);
+      msg.className = "msg-form ok"; msg.textContent = "Conta criada! Entrando…";
+      setTimeout(() => location.href = destino, 700);
+    });
+  </script>
+</body>
+</html>

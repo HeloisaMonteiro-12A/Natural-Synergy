@@ -1,0 +1,13 @@
+/* =========================================================
+   Natural Synergy — estilos da página: Sobre nós (sobre.html)
+   Carregado depois de style.css (estilos gerais).
+   ========================================================= */
+
+/* ---------------- Sobre nós ---------------- */
+.membro { text-align: center; }
+.avatar { width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 16px; display: grid; place-items: center; font-family: var(--fonte-titulo); font-size: 2rem; font-weight: 700; color: #fff; background: var(--grad-marca); border: 4px solid #fff; box-shadow: 0 0 0 3px var(--menta); }
+.membro .funcao { color: var(--folha); font-weight: 700; font-size: .92rem; margin-bottom: 8px; }
+.membro p { color: var(--texto-suave); font-size: .94rem; }
+
+/* Modo escuro */
+[data-tema="escuro"] .avatar { border-color: var(--superficie); }

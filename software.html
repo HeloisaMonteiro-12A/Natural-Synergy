@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software · Natural Synergy</title>
+  <script src="js/main.js"></script>
+  <script>Auth.exigirLogin();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/software.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <div id="cabecalho"></div>
+
+  <main>
+    <section class="page-hero" style="padding-block:48px 64px">
+      <div class="container">
+        <span class="sobretitulo" style="color:var(--neon)">Painel do software</span>
+        <h1>Olá, <span id="nome-usuario">usuário</span></h1>
+        <p class="lead">Acompanhe em tempo real as leituras do dispositivo. Use os controles de simulação para demonstrar como o sistema reage a uma crise.</p>
+      </div>
+    </section>
+
+    <section class="secao" style="padding-top:0;margin-top:-36px">
+      <div class="container painel">
+
+        <!-- Estado geral -->
+        <div class="p-12 estado-geral" id="estado-geral">
+          <div class="led on-verde" id="estado-led" style="border-color:rgba(255,255,255,.6)"></div>
+          <div>
+            <h2 id="estado-titulo">Monitorando normalmente</h2>
+            <p id="estado-desc">Batimentos e movimentos dentro do esperado.</p>
+          </div>
+        </div>
+
+        <!-- Indicadores -->
+        <div class="p-3 widget">
+          <h3>Batimentos <span class="chip chip-ok" id="chip-bpm" style="background:var(--tinta-ok);color:var(--destaque-texto)">normal</span></h3>
+          <div class="valor-grande"><span id="v-bpm">--</span> <small>BPM</small></div>
+        </div>
+        <div class="p-3 widget">
+          <h3>Movimento <span class="chip" id="chip-mov" style="background:var(--tinta-ok);color:var(--destaque-texto)">estável</span></h3>
+          <div class="valor-grande"><span id="v-mov">--</span> <small>g</small></div>
+        </div>
+        <div class="p-3 widget">
+          <h3>Dispositivo</h3>
+          <div class="valor-grande" style="font-size:1.6rem">ESP32 <small style="color:var(--folha)">● online</small></div>
+          <small style="color:var(--texto-suave)">Wi-Fi: <span id="v-rssi">-58</span> dBm · Bateria: <span id="v-bat">87</span>%</small>
+        </div>
+        <div class="p-3 widget">
+          <h3>Alertas</h3>
+          <div class="valor-grande"><span id="v-alertas">0</span> <small>enviados</small></div>
+          <small style="color:var(--texto-suave)"><span id="v-falsos">0</span> falsos alarmes cancelados</small>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="p-6 widget">
+          <h3>Frequência cardíaca (últimos 60 s)</h3>
+          <canvas class="grafico" id="graf-bpm"></canvas>
+        </div>
+        <div class="p-6 widget">
+          <h3>Variação de movimento (últimos 60 s)</h3>
+          <canvas class="grafico" id="graf-mov"></canvas>
+        </div>
+
+        <!-- Hardware -->
+        <div class="p-4 widget">
+          <h3>Componentes do protótipo</h3>
+          <div class="hw-linha"><span>LED</span><div class="led" id="hw-led"></div></div>
+          <div class="hw-linha"><span>Buzzer</span><strong id="hw-buzzer">desligado</strong></div>
+          <div class="hw-linha"><span>Botão</span><strong id="hw-botao">solto</strong></div>
+          <div class="hw-linha"><span>Sensor de batimentos</span><strong style="color:var(--folha)">ativo</strong></div>
+          <div class="hw-linha"><span>Sensor de movimento</span><strong style="color:var(--folha)">ativo</strong></div>
+        </div>
+
+        <!-- Simulação -->
+        <div class="p-4 widget">
+          <h3>Simulação</h3>
+          <p style="font-size:.9rem;color:var(--texto-suave)">Sem o protótipo conectado, o painel gera leituras simuladas.</p>
+          <div style="display:grid;gap:10px">
+            <button class="btn btn-sol" id="btn-crise">Simular crise</button>
+            <button class="btn btn-perigo" id="btn-sos">Botão SOS (pressionado 3 s)</button>
+            <button class="btn btn-secundario" id="btn-normal">Voltar ao normal</button>
+          </div>
+          <div class="campo" style="margin-top:18px">
+            <label for="limite">Limite de BPM: <span id="v-limite">120</span></label>
+            <input type="range" id="limite" class="controle-faixa" min="100" max="160" step="5" value="120">
+          </div>
+          <label style="display:flex;gap:8px;align-items:center;font-weight:600;font-size:.92rem">
+            <input type="checkbox" id="som"> Tocar som do buzzer
+          </label>
+        </div>
+
+        <!-- Contatos -->
+        <div class="p-4 widget">
+          <h3>Quem recebe o alerta</h3>
+          <div class="contato-item" style="background:var(--tinta-agua)">
+            <div><strong id="usuario-alerta">Você</strong><small>Usuário cadastrado</small></div>
+          </div>
+          <div id="lista-contatos"></div>
+          <form id="form-contato" style="margin-top:12px">
+            <div class="campo"><label for="ct-nome">Nome do contato</label><input id="ct-nome" required placeholder="Ex.: Maria (mãe)"></div>
+            <div class="campo"><label for="ct-tel">Telefone</label><input id="ct-tel" required placeholder="(11) 90000-0000" inputmode="tel"></div>
+            <button class="btn btn-primario btn-bloco" type="submit">Adicionar contato</button>
+          </form>
+        </div>
+
+        <!-- Log -->
+        <div class="p-12 widget">
+          <h3>Registro de eventos (serial do ESP32)</h3>
+          <div class="log" id="log"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de alerta -->
+  <div class="modal-fundo" id="modal" hidden>
+    <div class="modal" role="alertdialog" aria-labelledby="modal-titulo">
+      <div id="modal-contagem">
+        <h2 id="modal-titulo">Possível crise detectada</h2>
+        <p style="color:var(--texto-suave)">O alerta será enviado automaticamente em:</p>
+        <div class="contagem" id="contagem">10</div>
+        <p style="font-size:.9rem;color:var(--texto-suave)">No dispositivo, basta apertar o botão para cancelar.</p>
+        <button class="btn btn-secundario btn-bloco" id="btn-cancelar">Estou bem, cancelar alerta</button>
+      </div>
+      <div id="modal-enviado" hidden>
+        <h2 style="color:var(--cuidado)">Alerta enviado</h2>
+        <p style="color:var(--texto-suave)" id="enviado-para"></p>
+        <div class="msg-preview" id="msg-preview"></div>
+        <button class="btn btn-primario btn-bloco" id="btn-encerrar">Situação controlada, encerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="rodape"></div>
+  <script src="js/software.js"></script>
+</body>
+</html>

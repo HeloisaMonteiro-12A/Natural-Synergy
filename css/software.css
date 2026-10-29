@@ -1,0 +1,46 @@
+/* =========================================================
+   Natural Synergy — estilos da página: Painel do software (software.html)
+   Carregado depois de style.css (estilos gerais).
+   ========================================================= */
+
+.painel { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+.painel > * { min-width: 0; }
+.p-4 { grid-column: span 4; } .p-6 { grid-column: span 6; } .p-8 { grid-column: span 8; } .p-12 { grid-column: span 12; }
+.p-3 { grid-column: span 3; }
+@media (max-width: 980px) { .p-3, .p-4 { grid-column: span 6; } .p-6, .p-8 { grid-column: span 12; } }
+@media (max-width: 600px) { .p-3, .p-4, .p-6, .p-8 { grid-column: span 12; } }
+.widget { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px; box-shadow: var(--sombra); }
+.widget h3 { font-size: 1rem; color: var(--texto-suave); font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.valor-grande { font-family: var(--fonte-titulo); font-size: 2.6rem; font-weight: 700; color: var(--titulo); line-height: 1.1; }
+.valor-grande small { font-size: 1rem; color: var(--texto-suave); font-weight: 500; }
+.grafico { width: 100%; height: 200px; display: block; }
+.estado-geral { display: flex; align-items: center; gap: 18px; padding: 22px 26px; border-radius: var(--raio); color: #fff; background: var(--grad-marca); transition: background .4s; }
+.estado-geral.alerta { background: linear-gradient(135deg, #d9534a, #f08a4b); animation: pulsar 1s infinite; }
+.estado-geral.atencao { background: linear-gradient(135deg, #e0a224, #f4c95d); color: var(--noite); }
+.estado-geral h2 { color: inherit; margin: 0; font-size: 1.5rem; }
+.estado-geral p { margin: 0; opacity: .9; }
+@keyframes pulsar { 50% { box-shadow: 0 0 0 10px rgba(232,106,92,.25); } }
+.led { width: 26px; height: 26px; border-radius: 50%; background: #2c3d3a; border: 3px solid #cfd9d6; transition: background .2s, box-shadow .2s; }
+.led.on-verde { background: var(--folha); box-shadow: 0 0 18px var(--folha); }
+.led.on-vermelho { background: var(--cuidado); box-shadow: 0 0 22px var(--cuidado); }
+
+.log { max-height: 260px; overflow-y: auto; font-family: var(--fonte-mono); font-size: .82rem; background: #0a1b26; color: #bfe0d8; border-radius: 12px; padding: 14px; }
+.log div { padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+.log .t { color: #6c8b94; margin-right: 8px; }
+.log .alerta { color: #ff9c90; } .log .ok { color: var(--broto); } .log .info { color: var(--neon); }
+.contato-item { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px; background: var(--musgo); border-radius: 12px; margin-bottom: 8px; }
+.contato-item small { color: var(--texto-suave); display: block; }
+.contato-item button { background: none; border: 0; color: var(--cuidado); cursor: pointer; font-weight: 700; }
+.form-inline { display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; align-items: end; }
+.form-inline .campo { margin: 0; }
+@media (max-width: 600px) { .form-inline { grid-template-columns: 1fr; } }
+.controle-faixa { width: 100%; accent-color: var(--agua); }
+
+/* Modal de alerta */
+.modal-fundo { position: fixed; inset: 0; background: rgba(13,34,48,.65); display: grid; place-items: center; z-index: 100; padding: 20px; backdrop-filter: blur(4px); }
+.modal { background: var(--superficie); border-radius: 24px; padding: 32px; width: min(460px, 100%); text-align: center; box-shadow: 0 30px 80px -20px rgba(0,0,0,.5); }
+.contagem { font-family: var(--fonte-titulo); font-size: 4.5rem; font-weight: 700; color: var(--cuidado); line-height: 1; margin: 10px 0; }
+.msg-preview { text-align: left; background: #e8f7ee; border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: .92rem; margin: 16px 0; border: 1px solid #c9ead5; }
+
+/* Modo escuro */
+[data-tema="escuro"] .msg-preview { background: var(--tinta-ok); border-color: var(--borda); }

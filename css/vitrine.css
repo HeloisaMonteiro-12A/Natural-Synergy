@@ -1,0 +1,61 @@
+/* =========================================================
+   Natural Synergy — estilos da página: Vitrine técnica (vitrine.html)
+   Carregado depois de style.css (estilos gerais).
+   ========================================================= */
+
+pre.codigo {
+  margin: 0; overflow-x: auto; background: #0a1b26; color: #cfe7e0; border-radius: var(--raio);
+  padding: 24px; font-family: var(--fonte-mono); font-size: .86rem; line-height: 1.65; border: 1px solid #1d3a4c;
+}
+pre.codigo .c { color: #6c8b94; } pre.codigo .k { color: var(--neon); } pre.codigo .s { color: var(--broto); } pre.codigo .n { color: var(--sol); }
+
+/* Diagrama de arquitetura */
+.diagrama-wrap { overflow-x: auto; }
+.diagrama { min-width: 760px; width: 100%; height: auto; }
+
+/* =========================================================
+   Visor 3D do protótipo (vitrine)
+   ========================================================= */
+.visor3d {
+  display: grid; grid-template-columns: 1fr 300px; margin-top: 32px;
+  border-radius: var(--raio); overflow: hidden; background: var(--grad-tech); box-shadow: var(--sombra);
+}
+.visor3d-palco { position: relative; min-height: 540px; }
+.visor3d-palco canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.visor3d-palco canvas:active { cursor: grabbing; }
+.visor3d-hud { position: absolute; top: 14px; left: 14px; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; pointer-events: none; }
+.visor3d-leitura { color: #d9efe9; font-size: .85rem; background: rgba(13,34,48,.6); padding: 5px 12px; border-radius: 999px; }
+.visor3d-leitura strong { font-family: var(--fonte-mono); color: #fff; }
+.visor3d-dica { position: absolute; bottom: 12px; left: 14px; z-index: 2; font-size: .8rem; color: #9fc7bd; pointer-events: none; }
+.visor3d-rotulo {
+  position: absolute; z-index: 2; transform: translate(-50%, -100%); pointer-events: none; white-space: nowrap;
+  background: rgba(13,34,48,.85); color: #fff; font-size: .75rem; padding: 3px 9px; border-radius: 999px;
+  border: 1px solid rgba(60,224,199,.45);
+}
+.visor3d-erro { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: #d9efe9; margin: 0; }
+.visor3d-lateral {
+  display: flex; flex-direction: column; gap: 18px; padding: 20px;
+  background: rgba(255,255,255,.04); border-left: 1px solid rgba(255,255,255,.1); color: #d9efe9;
+}
+.visor3d-lateral h3, .visor3d-lateral h4 { color: #fff; }
+.visor3d-lateral h3 { font-size: 1rem; margin-bottom: 10px; }
+.visor3d-botoes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.visor3d-lateral .btn { padding: 9px 10px; font-size: .85rem; }
+.visor3d-lateral .btn[aria-pressed="true"] { background: var(--neon); color: var(--noite); border-color: transparent; }
+#visor3d-crise[aria-pressed="true"] { background: var(--cuidado); color: #fff; }
+.visor3d-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.visor3d-lista button {
+  font: inherit; font-size: .8rem; cursor: pointer; padding: 5px 11px; border-radius: 999px;
+  background: rgba(255,255,255,.08); color: #d9efe9; border: 1px solid rgba(255,255,255,.15);
+}
+.visor3d-lista button:hover { border-color: var(--neon); }
+.visor3d-lista button[aria-pressed="true"] { background: var(--neon); color: var(--noite); border-color: transparent; }
+.visor3d-detalhe { background: rgba(0,0,0,.22); border-radius: 12px; padding: 14px; font-size: .9rem; flex: 1; }
+.visor3d-detalhe h4 { margin-bottom: 6px; }
+.visor3d-detalhe p { margin: 0 0 .6em; }
+.visor3d-detalhe .pino { font-family: var(--fonte-mono); font-size: .8rem; color: var(--neon); }
+@media (max-width: 900px) {
+  .visor3d { grid-template-columns: 1fr; }
+  .visor3d-palco { min-height: 400px; }
+  .visor3d-lateral { border-left: 0; border-top: 1px solid rgba(255,255,255,.1); }
+}

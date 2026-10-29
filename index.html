@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural Synergy · Monitoramento de Crises Epilépticas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/tema.js"></script>
+</head>
+<body>
+  <div id="cabecalho"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <svg class="hero-folhas" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g fill="none" stroke="#3ce0c7" stroke-opacity=".18" stroke-width="1.5">
+          <path d="M0 520 C200 470 300 560 520 500 S900 420 1200 480"/>
+          <path d="M0 140 H180 V220 H340 V120 H520"/>
+          <path d="M1200 90 H1020 V170 H880 V60"/>
+          <circle cx="520" cy="120" r="5" fill="#3ce0c7"/><circle cx="880" cy="60" r="5" fill="#3ce0c7"/>
+        </g>
+        <g fill="#8fd694" fill-opacity=".08">
+          <path d="M1080 600 C1000 470 1060 360 1180 330 C1200 450 1170 540 1080 600z"/>
+          <path d="M60 0 C150 60 160 160 90 230 C20 170 10 70 60 0z"/>
+        </g>
+      </svg>
+      <div class="container hero-grid">
+        <div>
+          <span class="sobretitulo">TCC · Saúde + Tecnologia</span>
+          <h1>Cuidado que <em>vigia</em> enquanto você vive.</h1>
+          <p class="lead">O Natural Synergy é um manguito vestível que cobre o antebraço e monitora batimentos cardíacos e movimentos para identificar possíveis crises epilépticas e enviar, na hora, um alerta de ajuda para contatos de confiança.</p>
+          <div class="grupo-btn">
+            <a href="software.html" class="btn btn-primario">Acessar o software</a>
+            <a href="guia.html" class="btn btn-claro">Como funciona</a>
+          </div>
+        </div>
+        <div class="dispositivo" aria-label="Exemplo do monitoramento">
+          <div class="linha">
+            <span class="chip chip-ok"><span class="ponto"></span> Monitorando</span>
+            <span style="font-size:.85rem;color:#9fc7bd">ESP32 · Wi-Fi</span>
+          </div>
+          <div class="bpm"><span id="hero-bpm">76</span><small>BPM</small></div>
+          <svg class="pulso-svg" viewBox="0 0 300 80" preserveAspectRatio="none">
+            <path d="M0 45 H60 L72 45 L80 15 L90 70 L98 45 H150 L162 45 L170 12 L180 72 L188 45 H240 L252 45 L260 18 L270 68 L278 45 H300"/>
+          </svg>
+          <div class="linha" style="margin:14px 0 0">
+            <span>Movimento: <strong style="color:#fff">estável</strong></span>
+            <span>Contatos: <strong style="color:#fff">2 ativos</strong></span>
+          </div>
+        </div>
+      </div>
+      <svg class="hero-onda" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 40 C240 80 480 0 720 30 S1200 70 1440 30 V70 H0z" style="fill:var(--fundo)"/>
+      </svg>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="secao">
+      <div class="container">
+        <div class="grade grade-2" style="align-items:center">
+          <div class="revelar">
+            <span class="sobretitulo">O problema</span>
+            <h2>Uma crise pode acontecer quando ninguém está por perto.</h2>
+            <p class="lead">A epilepsia é uma das condições neurológicas mais comuns do mundo. Durante uma crise, a pessoa muitas vezes não consegue pedir ajuda sozinha, e o tempo até o socorro chegar faz diferença.</p>
+            <p>Nosso projeto nasceu da vontade de reduzir esse tempo usando componentes acessíveis, de baixo custo e fáceis de reproduzir.</p>
+          </div>
+          <div class="grade grade-2 revelar" style="grid-template-columns:repeat(2,1fr)">
+            <div class="cartao stat"><div class="num">~50 mi</div><p>pessoas vivem com epilepsia no mundo (OMS)</p></div>
+            <div class="cartao stat"><div class="num">5 min</div><p>crise contínua por mais de 5 minutos exige socorro (SAMU 192)</p></div>
+            <div class="cartao stat"><div class="num">24h</div><p>monitoramento contínuo pelo dispositivo</p></div>
+            <div class="cartao stat"><div class="num">2</div><p>destinos de alerta: contato e usuário cadastrado</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILARES -->
+    <section class="secao secao-alt">
+      <div class="container">
+        <div class="centro revelar">
+          <span class="sobretitulo">Nossa proposta</span>
+          <h2>Natureza, saúde e tecnologia em equilíbrio</h2>
+          <p class="lead">Unimos um design leve e acolhedor a sensores precisos para criar uma solução que protege sem atrapalhar a rotina.</p>
+        </div>
+        <div class="grade grade-3" style="margin-top:40px">
+          <div class="cartao revelar">
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6"/></svg></div>
+            <h3>Natureza</h3>
+            <p>Interface calma, cores orgânicas e foco em bem-estar. Tecnologia que se integra à vida, sem causar ansiedade.</p>
+          </div>
+          <div class="cartao revelar">
+            <div class="icone agua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/><path d="M3.2 12h4.3l1.5-3 3 6 1.5-3h7.3"/></svg></div>
+            <h3>Saúde</h3>
+            <p>Leitura contínua de batimentos cardíacos e movimento, com alertas rápidos para quem pode ajudar.</p>
+          </div>
+          <div class="cartao revelar">
+            <div class="icone tech"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+            <h3>Tecnologia</h3>
+            <p>ESP32 com Wi-Fi, sensores de baixo custo e um software web para acompanhar tudo em tempo real.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="secao secao-tech">
+      <div class="container">
+        <div class="centro revelar">
+          <span class="sobretitulo">Como funciona</span>
+          <h2>Do sensor ao pedido de ajuda em segundos</h2>
+        </div>
+        <div class="fluxo" style="margin-top:44px">
+          <div class="passo revelar"><h3>Leitura</h3><p>Os sensores captam batimentos cardíacos e movimentos do corpo continuamente.</p></div>
+          <div class="passo revelar"><h3>Análise</h3><p>O ESP32 compara os dados com limites seguros e identifica padrões de crise.</p></div>
+          <div class="passo revelar"><h3>Aviso local</h3><p>LED e buzzer são acionados. O botão permite cancelar um falso alarme.</p></div>
+          <div class="passo revelar"><h3>Alerta remoto</h3><p>Se não for cancelado, o alerta é enviado ao contato e ao usuário cadastrados.</p></div>
+        </div>
+        <div class="centro" style="margin-top:40px">
+          <a href="vitrine.html" class="btn btn-claro">Ver detalhes técnicos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA -->
+    <section class="secao">
+      <div class="container">
+        <div class="grade grade-3">
+          <a href="guia.html" class="cartao revelar" style="text-decoration:none;color:inherit">
+            <span class="sobretitulo">Guia de uso</span>
+            <h3>Aprenda a usar o dispositivo passo a passo</h3>
+            <p style="color:var(--texto-suave)">Da instalação ao cadastro de contatos de emergência.</p>
+          </a>
+          <a href="jogo.html" class="cartao revelar" style="text-decoration:none;color:inherit">
+            <span class="sobretitulo">Jogo educativo</span>
+            <h3>Você sabe o que fazer durante uma crise?</h3>
+            <p style="color:var(--texto-suave)">Teste seus conhecimentos de primeiros socorros.</p>
+          </a>
+          <a href="sobre.html" class="cartao revelar" style="text-decoration:none;color:inherit">
+            <span class="sobretitulo">Sobre nós</span>
+            <h3>Conheça a equipe por trás do projeto</h3>
+            <p style="color:var(--texto-suave)">Quem somos e por que escolhemos este tema.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="rodape"></div>
+  <script src="js/main.js"></script>
+  <script>
+    // Batimento animado no cartão do hero
+    const bpm = document.getElementById("hero-bpm");
+    setInterval(() => { bpm.textContent = 72 + Math.round(Math.random() * 8); }, 1500);
+  </script>
+</body>
+</html>
